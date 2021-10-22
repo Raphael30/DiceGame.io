@@ -27,6 +27,9 @@ const init = function () {
   score1.textContent = 0;
   current0.textContent = 0;
   current1.textContent = 0;
+  
+  btnRoll.disabled = false;
+  btnHold.disabled = false;
 
   dice.classList.add('hidden');
   player0.classList.remove('player--winner');
@@ -72,6 +75,8 @@ btnHold.addEventListener('click', function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     if (scores[activePlayer] >= 50) {
+      btnRoll.disabled = true;
+      btnHold.disabled = true;
       playing = false;
       dice.classList.add('hidden');
       document
